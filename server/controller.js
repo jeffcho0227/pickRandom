@@ -10,12 +10,17 @@ const addName = (req, res) => {
         });
 };
 
-const findName = () => {
-    Helpers.findName(req.body)
+const findName = (req, res) => {
+    Helpers.findName({})
         .then(data => {
             res.status(200).send(data);
         })
         .catch(err => {
             console.error(err)
         })
+}
+
+module.exports = {
+    addName, 
+    findName,
 }
