@@ -1,22 +1,22 @@
 const randomNameModel = require('./index.js');
 
-const findName = () => {
+const findNameHelper = () => {
     return randomNameModel.find();
 }
 
-const addName = ({firstName, lastName}) => {
+const addNameHelper = ({firstName, lastName}) => {
     return randomNameModel.create({
         firstName: firstName,
         lastName: lastName
     });
 }
 
-const removeName = ({firstName, lastName}) => {
+const removeNameHelper = ({firstName, lastName}) => {
     return randomNameModel.deleteOne({firstName, lastName});
 }
 
 module.exports = {
-    findName, 
-    addName,
-    removeName
+    findNameHelper, 
+    addNameHelper,
+    removeNameHelper
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import Axios from 'axios';
 
 export default class Form extends React.Component {
   constructor(props) {
@@ -8,6 +9,7 @@ export default class Form extends React.Component {
       lastName: '',
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   
   componentDidMount() {
@@ -25,12 +27,26 @@ export default class Form extends React.Component {
     })
   }
 
+  handleSubmit(e) {
+    let data = this.state;
+    Axios
+    .post('/api/createName', data)
+    .then(data =>  {
+      console.log(data);
+      props.fetchList();
+    })
+    .catch(err => console.error(err));
+
+  }
+
   render() {
     return (
       <div>
+        <form onSubmit={this.handleSubmit}>
         First Name: <input type="text" name='firstName' onChange={(e) => {this.handleChange(e)}}/>
         Last Name: <input type="text" name='lastName' onChange={(e) => {this.handleChange(e)}}/>
-        <button>Add</button>
+        <button  type='submit'>Add</button>
+        </form>
       </div>
     )
   }

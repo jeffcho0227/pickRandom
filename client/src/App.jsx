@@ -39,7 +39,7 @@ export default class App extends React.Component{
         return (
         <div>
             <h2>Random Pick</h2>
-            <Form/>
+            <Form fetchList={this.fetchList}/>
             <List itemList={this.state.itemList}/>
         </div>
         )

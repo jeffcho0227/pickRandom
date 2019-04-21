@@ -1,7 +1,8 @@
 const Helpers = require('../database/dbHelpers.js');
 
 const addName = (req, res) => {
-    Helpers.findName(req.body)
+    console.log(req.body);
+    Helpers.addNameHelper(req.body)
         .then(data => {
             res.status(200).send('data added');
         })
@@ -11,7 +12,7 @@ const addName = (req, res) => {
 };
 
 const findName = (req, res) => {
-    Helpers.findName({})
+    Helpers.findNameHelper({})
         .then(data => {
             res.status(200).send(data);
         })
