@@ -28,7 +28,7 @@ export default class App extends React.Component{
             })
         })
         .catch(err => console.error(err));
-        console.log(this.state);
+        // console.log(this.state);
     }
 
     handleClickAndDelete(id) {

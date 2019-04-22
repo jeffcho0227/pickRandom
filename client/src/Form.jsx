@@ -11,10 +11,6 @@ export default class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-  
-  componentDidMount() {
-
-  }
 
   handleChange(e) {
     // {name, value} = event.target;
@@ -36,7 +32,6 @@ export default class Form extends React.Component {
       props.fetchList();
     })
     .catch(err => console.error(err));
-
   }
 
   render() {

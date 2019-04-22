@@ -5,30 +5,18 @@ export default class Display extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      currentFirstName: 'sdjfa',
-      currentLastName: 'asdf',
-      list: []
+      currentFirstName: 'Who',
+      currentLastName: 'is it?',
     }
     this.handleRandomPick = this.handleRandomPick.bind(this);
-    // console.log(props);
   }
 
-  // componentDidMount() {
-  //   props.fetchList();
-  // }
-
   handleRandomPick() {
-    Axios
-    .get('/api/list')
-    .then(({data}) => {
-        let randomIndex = Math.floor(Math.random()*data.length);
-        this.setState({
-            currentFirstName: data[randomIndex].firstName,
-            currentLastName: data[randomIndex].lastName,
-        })
+    let randomIndex = Math.floor(Math.random()*this.props.list.length);
+    this.setState({
+      currentFirstName: this.props.list[randomIndex].firstName,
+      currentLastName: this.props.list[randomIndex].lirstName,
     })
-    .catch(err => console.error(err));
-    // console.log(randomIndex)
   }
 
   render() {
