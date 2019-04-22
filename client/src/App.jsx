@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './ListView.jsx'
+import ListView from './ListView.jsx'
 import Form from './Form.jsx';
 import Axios from 'axios';
 
@@ -7,14 +7,10 @@ export default class App extends React.Component{
     constructor() {
         super();
         this.state = {
-            itemList: [
-                {firstName: 'Jeff', lastName: 'Cho'},
-                {firstName: 'Jeff', lastName: 'Cho'},
-                {firstName: 'Jeff', lastName: 'Cho'}
-            ],
- 
+            itemList: [],
         }
         this.fetchList = this.fetchList.bind(this);
+        this.handleClickAndDelete = this.handleClickAndDelete.bind(this);
     }
 
     componentDidMount() {
@@ -31,16 +27,25 @@ export default class App extends React.Component{
             })
         })
         .catch(err => console.error(err));
-        
     }
 
+    handleClickAndDelete(id) {
+        Axios
+        .delete(`/api/${id}`)
+        .then((data) => {
+            console.log('deleted')
+            this.fetchList();
+            console.log('cliecked');
+        })
+        .catch(err => console.error(err));
+    }
     
     render() {
         return (
         <div>
             <h2>Random Pick</h2>
             <Form fetchList={this.fetchList}/>
-            <List itemList={this.state.itemList}/>
+            <ListView itemList={this.state.itemList} handleClickAndDelete={this.handleClickAndDelete}/>
         </div>
         )
     }

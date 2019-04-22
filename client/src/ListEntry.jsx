@@ -1,10 +1,10 @@
 import React from 'react';
 
 export default function ListEntry(props) {
-  console.log(props)
+  console.log(props.ListItem._id)
   return (
-    <div>
-      {props.ListItem.firstName} {props.ListItem.lastName}
+    <div onClick={() => {props.handleClickAndDelete(props.ListItem._id)}}>
+      {props.ListItem.firstName} {props.ListItem.lastName} {props.ListItem._id}
     </div>
   )
 }
