@@ -10,4 +10,8 @@ Router
 .route('/createName')
 .post(controller.addName)
 
+Router
+.route('/:id')
+.delete(controller.removeName)
+
 module.exports = Router;

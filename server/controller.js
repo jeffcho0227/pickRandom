@@ -21,7 +21,18 @@ const findName = (req, res) => {
         })
 }
 
+const removeName = (req, res) => {
+    let {id} = req.params
+    console.log(req.params);
+    Helpers.removeNameHelper(id)
+    .then(data => {
+        res.status(204).send('data deleted')
+    })
+    .catch(err => console.error(err));
+}
+
 module.exports = {
     addName, 
     findName,
+    removeName,
 }

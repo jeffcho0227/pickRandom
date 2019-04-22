@@ -11,8 +11,8 @@ const addNameHelper = ({firstName, lastName}) => {
     });
 }
 
-const removeNameHelper = ({firstName, lastName}) => {
-    return randomNameModel.deleteOne({firstName, lastName});
+const removeNameHelper = (id) => {
+    return randomNameModel.deleteOne({_id: id});
 }
 
 module.exports = {
