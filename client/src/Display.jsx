@@ -1,5 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
+import Style from './Style/Display.scss';
+// import Style from './Style/App.scss';
 
 export default class Display extends React.Component {
   constructor(props) {
@@ -21,7 +23,7 @@ export default class Display extends React.Component {
 
   render() {
     return(
-      <div>
+      <div >
         <h3>You are it!!</h3>
         <div>
           <span>{this.state.currentFirstName}  </span>

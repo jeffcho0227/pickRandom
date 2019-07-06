@@ -24,14 +24,19 @@ export default class Form extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     let data = this.state;
-    Axios
-    .post('/api/createName', data)
-    .then(data =>  {
-      console.log(data);
-      props.fetchList();
-    })
-    .catch(err => console.error(err));
+    if (this.state.firstName === '' && this.state.lastName === '') {
+      alert('please fill in one of the fields')
+    } else {
+      Axios
+      .post('/api/createName', data)
+      .then(data =>  {
+        console.log(data);
+        this.props.fetchList();
+      })
+      .catch(err => console.error(err));
+    }
   }
 
   render() {
