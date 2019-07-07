@@ -5,54 +5,67 @@
   padding: 0;
   box-sizing: inherit;
   font-family: 'Raleway';
+  box-sizing: border-box;
 }
 
 html {
-  background-image: url('https://images.unsplash.com/photo-1497005367839-6e852de72767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80');
+  background-image: url('https://images.unsplash.com/photo-1497005367839-6e852de72767?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1647&q=80') ;
 }
 
-.container {
-  display: grid;
-  grid-template-columns: 25% 25% 25% 25%;
-  grid-template-rows: 100px 50px 100px 100px;
-  grid-template-areas: 
-  "header header header header"
-  " . nav nav . "
-  "form form . list"
-  "display display . list";
-  justify-content: center;
-  grid-gap: 15px 10px;
-
-  .item_header {
-    grid-area: header;
-    justify-self: center;
-    align-self: center;
-  }
+.main_container {
+  margin: 0 3%;
   
-  .item_form {
-    grid-area: form;
-    justify-self: center;
-  }
-  
-  .item_list {
-    grid-area: list;
-    justify-self: center;
-  }
-  
-  .item_display {
-    grid-area: display;
-    justify-self: center;
+  h1 {
+    text-align: center;
+    margin: 3% 10%;
   }
 
-  .item_nav {
-    grid-area: nav;
-    justify-self: center;
-    align-self: center;
-    border: 1px solid black;
+  .nav_container {
+    text-align: center;
 
-    .nav_item {
-      margin: 20px 20px;
-      padding: 10px 10px;
+    .nav_inactive {
+      border: 1px solid gray;
+      padding: 1% 1%;
+      margin: 1% 1%;
+      transition: box-shadow 0.5s;
+      -webkit-transition: box-shadow 0.5s;
     }
+
+    .nav_inactive:hover {
+      font-weight: bold;
+      border: 1px solid black;
+      box-shadow: 10px 10px 8px #888888;
+      transition: box-shadow 0.5s;
+      -webkit-transition: box-shadow 0.5s;
+    }
+
+    .nav_active:hover {
+      font-weight: bold;
+      border: 1px solid black;
+      box-shadow: 10px 10px 8px #888888;
+      transition: box-shadow 0.5s;
+      -webkit-transition: box-shadow 0.5s;
+    }
+
+    .nav_active {
+      border: 1px solid gray;
+      padding: 1% 1%;
+      margin: 1% 1%;
+      font-weight: bold;
+      border: 1px solid black;
+      transition: box-shadow 0.5s;
+      -webkit-transition: box-shadow 0.5s;
+    }
+
   }
+
+  // .list_view_container {
+  //   float: right;
+  //   margin-top: 4%;
+  //   margin-right: 30%;
+  //   padding: 2% 2%;
+  //   width: 25%;
+  // }
+
+
 }

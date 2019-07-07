@@ -1,12 +1,13 @@
-.display_container {
+.form_container {
   margin: 4% 4%;
   padding: 1% 1%;
+  // border: 1px solid black;
   // display: inline-block;
   float: left;
 
-  .display_name {
-    font-size: 36px;
-    font-weight: bold;
+  .form_input {
+    // display: inline-block;
+    color: rgb(10, 122, 150);
   }
 
   button {

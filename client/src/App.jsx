@@ -15,6 +15,8 @@ export default class App extends React.Component{
         }
         this.fetchList = this.fetchList.bind(this);
         this.handleClickAndDelete = this.handleClickAndDelete.bind(this);
+        this.handleStateChange = this.handleStateChange.bind(this);
+        this.showGenerator = this.showGenerator.bind(this);
     }
 
     componentDidMount() {
@@ -42,30 +44,59 @@ export default class App extends React.Component{
         .catch(err => console.error(err));
     }
 
+    handleStateChange(state) {
+        this.setState({
+            page: state
+        });
+    }
+
+    showDescription() {
+        return (
+            <Description />
+        )
+    }
+
+    showGenerator() {
+        return(
+            <div>
+                <div>
+                    <div className={Style.list_view_container }>
+                        <ListView itemList={this.state.itemList} handleClickAndDelete={this.handleClickAndDelete}/>
+                    </div>
+                    <div>
+                        <Form fetchList={this.fetchList}/>
+                    </div>
+                    <div>
+                        <Display list={this.state.itemList} fetchList={this.fetchList}/>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     render() {
         return (
-        <div className={Style.container}>
-            <div className={Style.item_nav}>
-                <span className={Style.nav_item}>
-                    Generator
-                </span>
-                <span className={Style.nav_item}>
-                    Description
-                </span>
+        <div className={Style.main_container}>
+            <div>
+                <div>
+                    <h1>Pick-aroo</h1>
+                </div>
+                <div className={Style.nav_container}>
+                    <span className={this.state.page === 'Generator' ?
+                                Style.nav_active : Style.nav_inactive} 
+                                onClick={() => this.handleStateChange('Generator')}>
+                        Generator
+                    </span>
+                    <span className={this.state.page === 'Description' ?
+                                Style.nav_active : Style.nav_inactive} 
+                                onClick={() => this.handleStateChange('Description')}>
+                        How it works
+                    </span>
+                </div>
             </div>
-            <div className={Style.item_header}>
-                <h1>Can't decide? Let me help you</h1>
-            </div>
-            <div className={Style.item_form}>
-                <Form fetchList={this.fetchList}/>
-            </div>
-            <div className={Style.item_list}>
-                <ListView itemList={this.state.itemList} handleClickAndDelete={this.handleClickAndDelete}/>
-            </div>
-            <div className={Style.item_display}>
-                <Display list={this.state.itemList} fetchList={this.fetchList}/>
-            </div>
-            
+            {this.state.page === 'Generator' ? 
+                this.showGenerator() : this.showDescription()
+            }
         </div>
         )
     }

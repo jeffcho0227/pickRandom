@@ -17,17 +17,17 @@ export default class Display extends React.Component {
     let randomIndex = Math.floor(Math.random()*this.props.list.length);
     this.setState({
       currentFirstName: this.props.list[randomIndex].firstName,
-      currentLastName: this.props.list[randomIndex].lirstName,
+      currentLastName: this.props.list[randomIndex].lastName,
     })
   }
 
   render() {
     return(
-      <div >
+      <div className={Style.display_container}>
         <h3>You are it!!</h3>
         <div>
-          <span>{this.state.currentFirstName}  </span>
-          <span>{this.state.currentLastName}</span>
+          <span className={Style.display_name}>{this.state.currentFirstName} </span>
+          <span className={Style.display_name}>{this.state.currentLastName}</span>
         </div>
           <button onClick={()=> {this.handleRandomPick()}}>next?</button>
       </div>

@@ -1,0 +1,21 @@
+.list_container {
+  margin: 4% 4%;
+  padding: 1% 1%;
+  width: 15%;
+  text-align: left;
+  // display: inline;
+  float: right;
+  background: rgba(255,255,255, 0.5);
+
+  .list_items {
+    float: right;
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+.list_title {
+  float: right;
+  margin: 4% 4%;
+  padding: 1% 1%;
+}
